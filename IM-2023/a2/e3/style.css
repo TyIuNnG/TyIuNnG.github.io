@@ -1,0 +1,213 @@
+/*
+  This one CSS file is imported into both index.html AND hosono.html so you need to be careful that it 
+  works for both.
+*/
+
+*{
+  box-sizing: border-box;
+  background-origin: border-box;
+  margin: 0;
+}
+
+:root{
+  /* first two colours come from Kuroi's Manga Pallete Palette */
+  /* https://lospec.com/palette-list/manga-pallete */
+  --col-01:#171219;
+  --col-02:#f2fbeb;
+  --col-03:#5252ff;
+  --col-04:#b6e878;
+  font-size: 16px;
+  /* scroll behaviour makes the <a> links to ids scroll to position over time rather than immediately */
+  scroll-behavior: smooth;
+}
+
+body{
+  padding: 1rem;
+  background-color: var(--col-02);
+  color: var(--col-01);
+  border-color: var(--col-01);
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+/* Transition, :active, and :hover examples are all in one function */
+
+/* button transition example */
+/* Transitions are great for feedback with smooth animations between the two different forms.
+By applying transitions onto the button, it will give the user a little time to get use to the color as it sometimes will be painful when something dark suddenly turns bright or the opposite.
+Here I simply have some background and color changes mixed with active and hover function, so it not only supports the user making actions, but also not disruppting the aesthetics of the page. */
+
+ol li a {
+  transition: all 0.5s ease-in;
+}
+
+nav li {
+  font-size: 1rem;
+}
+
+/* :hover pseudo-class example */
+/* The hover function makes the user know that the text are clickable from the color being different and cursor changed. 
+User can also tell that they are pointing at which button currently.
+The color when hover is the reverse color of its original form. 
+The black and white only helps the user not having to process extra colors and keeps the aesthetics of the page simple and clean. */
+nav li :hover{
+  transition: all 0.3s ease-out;
+  color: var(--col-02);
+  background-color: var(--col-01);
+  cursor: pointer;
+}
+
+/* :active pseudo-class example */
+/* The active function makes the user know that they have clicked the button.
+The color of active function must be suitable for both dark and bright mode since only the background color are being changed. 
+Therefore the chosen color must be one that is suited with both black or white, so the text for either mode will be clear enough to see. */
+nav li :active{
+  background-color: #5d6dff;
+  transition: none;
+}
+
+section{
+  margin-bottom: 2rem;
+}
+
+h1{
+  font-size: 3rem;
+}
+
+h2{
+  font-size: 2rem;
+}
+
+p{
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+figcaption{
+  width: fit-content;
+}
+
+dl ul{
+  margin-bottom: 0;
+}
+
+li{
+  font-size: 1rem;
+}
+
+dd{
+  padding-left: 60px;
+}
+
+li ul{
+  padding-left: 40px;
+}
+
+.img-wrapper{
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.img-figure{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-img{
+  width: 80%;
+}
+
+.res-columns{
+  column-width: 25rem;
+}
+
+#mode-button{
+  float: right;
+  /* note the use of position: sticky to keep the button on the page even with scrolling */
+  position: sticky;
+  top: 1rem;
+}
+
+/* code for loading page */
+
+#load-body{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* changing button to look like a link */
+#load-link{
+  line-height: 1rem;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+/* throbber while page is fake loading */
+#load-throbber{
+  /* the width, height and background-color give it a shape on the page without any content inside - 
+  these value are arbitrary, please change to create your own design  */
+  animation: loadingBars 3s ease-in-out;
+  width: 25%;
+  height: 1rem;
+  background-image: linear-gradient(90deg, blue 0% 50%, white 50%);
+  /* we also initially set display to none so it only shows once the link is clicked */
+  display: none;
+  border-color: white;
+  border-width: 5px;
+  border-style: solid;
+  background-size: 200% 200%;
+}
+
+/* Media Queries */
+
+/* medium devices 600 - 992 */
+@media only screen and (min-width: 600px) {
+  :root{
+    font-size: 20px;
+  }
+  
+  .img-wrapper{
+    width: 75%;
+    margin: 1.5rem auto;
+  }
+
+}
+
+/* medium devices 992 + */
+@media only screen and (min-width: 992px) {
+  :root{
+    font-size: 24px;
+  }
+
+  .img-wrapper{
+    max-width: fit-content;
+    float: right;
+    margin: 1.5rem;
+  }
+
+}
+
+@media (prefers-reduced-motion) {
+  :root{
+    scroll-behavior: auto;
+  }
+}
+
+/* animation example */
+/* This is an animation feedback for loading-throbber in the index.html. 
+It is a meaningful feedback as it creates a similar effect as entering a game when there's a bar that loads from 0 to 100 
+and tells the user that the website is now loading and they can tell how many percent the website has loaded. */
+@keyframes loadingBars {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+
