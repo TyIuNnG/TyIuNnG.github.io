@@ -1,0 +1,147 @@
+/* I set the default background color to dark theme because bright colors are quite painful to my eyes. */
+*{
+  box-sizing: border-box;
+  background-origin: border-box;
+  margin: 0;
+  background-color: #222323;
+}
+
+/* Basis for colour palette comes from 1bit Monitor Glow Palette by Polyducks */
+/* https://lospec.com/palette-list/1bit-monitor-glow */
+/* you're welcome to change the colours if you want or any of the other general page style */
+:root{
+  --col-01:#222323;
+  --col-02:#f0f6f0;
+  --col-03:#5252ff;
+  --col-04:#b6e878;
+  --col-05:#bcbdbc;
+  --col-06:#6f6f6f;
+  --border: 1px solid var(--col-02);
+}
+
+/* I made the player a bit larger and added border and box-shadow, so it looks like a real monitor */
+.video-player-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 4rem auto;
+  border-style: outset;
+  border-width: 10px;
+  border-color: var(--col-02);
+  box-shadow: 15px 15px 15px black;
+}
+
+/* becuase I want to overlay the play icon on the video they need to be in their own wrapper */
+.video-element-wrapper{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+/* I used hover transition to tell the user that the video element is clickable, 
+   or normally people can't tell if they can click the video or not since there's no feedback when hovering*/
+#videoElement{
+  width: 100%;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  transition: 0.4s all ease-in-out;
+}
+
+#videoElement:hover{
+  opacity: 0.3;
+  transition: none;
+}
+
+#videoPlayOverlay{
+  width: 8rem;
+  height: 8rem;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  justify-self: center;
+  align-self: center;
+  opacity: 0.6;
+  display: none;
+}
+
+.video-controls-wrapper{
+  display: flex;
+  justify-content: center;
+  background-color: var(--col-02);
+}
+/* this overwrites the above display:flex - something which is then undone when the JS loads */
+#controlsWrapper{
+  display: none;
+}
+
+/* I added some margins so the controls doesn't stick too close to the edge, causing everything to look crowded */
+/* I also add border-radius to make the edge of the button smoother, making it more like buttons on actual monitor */
+.video-control-button{
+  width: 2rem;
+  height: 2rem;
+  padding: .1rem;
+  border: none;
+  cursor: pointer;
+  background-color: var(--col-02);
+  margin: .3rem;
+  border-radius: .5rem;
+}
+.video-control-button:hover{
+  background-color: var(--col-05);
+}
+.video-control-button:active{
+  background-color: var(--col-06);
+}
+.button-icon{
+  pointer-events: none;
+}
+
+#playButton{
+  background-image: url('./icons/play.svg');
+}
+
+#muteButton{
+  background-image: url('./icons/mute.svg');
+}
+
+/*  */
+#loopButton{
+  background-image: url('./icons/loop.svg');
+}
+
+/* I made the progress-bar has about the same height as the buttons, so it doesn't look extra large, personally I think this looks much better than before */
+.video-progress-bar{
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  height: auto;
+  flex-grow: 1;
+  cursor: pointer;
+  background-color: var(--col-02);
+  /* box-shadow: 0 1px 2px var(--col-03) inset; */
+  padding: 7px;
+}
+::-moz-progress-bar {
+  background-color: var(--col-03);
+}
+
+::-webkit-progress-bar {
+  background-color: var(--col-01);
+  box-shadow: 0 1px 2px var(--col-03) inset;
+}
+::-webkit-progress-value {
+  background-color: var(--col-03);
+}
+
+.timeline-loading{
+  background-image: -moz-repeating-linear-gradient(45deg, var(--col-03) 0% 2%, transparent 2% 4%, red 4%);
+  background-size: 200% 100%;
+  animation: loadingAnimation 4s linear infinite;
+}
+
+@keyframes loadingAnimation {
+  100%{
+    background-position: 50% 0%;
+  }
+}
