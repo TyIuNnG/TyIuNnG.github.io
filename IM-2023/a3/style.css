@@ -1,7 +1,10 @@
+/* The background color is set to white so it matches the colour of the fog */
 body {
     background-color: white;
 }
 
+/* The title is styled referencing the title in POPCAT */
+/* The large and bold texts in the center makes it extremely visible to the user */
 #title {
     position: absolute;
     left: 50%;
@@ -12,6 +15,7 @@ body {
     text-align: center;
 }
 
+/* Container for the game */
 .bike-simulator {
    position: relative; 
    display: flex;
@@ -19,6 +23,7 @@ body {
    justify-items: center;
 }
 
+/* background of the game */
 .background-image {
     background-image: url("image/background.svg");
     background-size: contain;
@@ -32,6 +37,7 @@ body {
     z-index: 1;
 }
 
+/* the fog effect between the figure and the background */
 #mask {
     background-color: white;
     position: absolute;
@@ -42,6 +48,7 @@ body {
     z-index: 2;
 }
 
+/* the wrapper for the bicycle figure used for positioning */
 .bike-wrapper {
     position: relative;
     top: 72%;
@@ -51,6 +58,7 @@ body {
     /* background-color: red; */
 }
 
+/* the image of the bike excluding wheels */
 .bike-image {
     position: absolute;
     z-index: 4;
@@ -58,22 +66,28 @@ body {
     transform: translateY(-90%);
 }
 
+/* both front and back wheels */
 .wheels {
     scale: 18%;
 }
 
+/* front wheel image */
+/* linear infinite animation makes the wheel spin when game is running */
 #front-wheel {
     position: absolute;
     transform: translate(-76%, -300%);
     animation: frontWheelSpin linear infinite;
 }
 
+/* back wheel image */
+/* linear infinite animation makes the wheel spin when game is running */
 #back-wheel {
     position: absolute;
     transform: translate(80%, -300%);
     animation: backWheelSpin linear infinite;
 }
 
+/* speedometer that is set to black in contrast of the white fog and background */
 .speed-display {
     position: absolute;
     color: black;
@@ -83,6 +97,7 @@ body {
     z-index: 3;
 }
 
+/* the tip text that is black in contrast to the background and positioned close under the figure to be seen easily */
 #tip-text {
     position: absolute;
     top: 50%;
@@ -94,6 +109,7 @@ body {
     z-index: 3;
 }
 
+/* both @keyframes make sure the wheel is spinning in counter-clockwise, so it's moving forward */
 @keyframes frontWheelSpin {
     from {
         transform: translate(-76%, -300%) rotate(30deg);
@@ -112,6 +128,8 @@ body {
     }
 }
 
+/* text wrapper for the 500 words */
+/* default has transparent background so it doesnt block the background too much if it really does get in the way because of the window size */
 .words-display {
     position: absolute;
     z-index: 6;
@@ -120,16 +138,20 @@ body {
     max-width: 90%;
 }
 
+/* the button that is used to summon and remove the 500 words */
 #display-button {
     position: relative;
 }
 
+/* 500 words itself */
+/* automatically switch to next line when reaches max-width of the text wrapper and larger line-height making the text easier to read */
 #article {
     position: relative;
     word-wrap: break-word;
     line-height: 120%;
 }
 
+/* higher break words helps sepearting the paragraphs and improving the experience in reading */
 br {
     margin: 10px;
     display: block;

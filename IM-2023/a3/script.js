@@ -121,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // This function calls out the 500 words paragraph that explains the design choices of this simulator
+// Also creates white background that helps the text to been seen easier when the background is running
 // Also it can hide as well after the texts are visible
 function displayArticle() {
     if (document.getElementById("article").style.display === "none") {
