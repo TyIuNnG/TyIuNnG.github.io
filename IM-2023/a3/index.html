@@ -4,17 +4,83 @@
 
     <head>
 
-        <meta charset="utf-8" name="viewport" content="width=device=width, initial-scale=1.0">
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="style.css">
         
         <script src="script.js"></script>
 
+        <title>Bicycle Dynamo</title>
+
     </head>
 
     <body>
 
-        <h1>:)</h1>
+        <div class="bike-simulator">
+            <!-- This is the container for the whole simulator -->
+
+            <div id=background class="background-image">
+                <!-- This is the background picture -->
+
+                <div id="mask"></div>
+                <!-- This creates the fog effect -->
+
+                <div class="bike-wrapper">
+
+                    <img src="image/static.svg" id="clickBike" class="bike-image">
+                    <!-- This is the picture of the bicycle -->
+    
+                    <img src="image/front-wheel.svg" id="front-wheel" class="wheels">
+                    <img src="image/back-wheel.svg" id="back-wheel" class="wheels">
+                    <!-- These 2 pictures are the wheels for animation -->
+
+                </div>
+
+                <div class="speed-display">Speed: <span id="speed-metre">0</span> km/h</div>
+                <!-- speed metre -->
+
+                <div id="tip-text">CLICK THE FIGURE AS FAST AS YOU CAN!</div>
+                <!-- Tips -->
+
+            </div>
+
+        </div>
+
+        <div class="words-display">
+
+            <button id="display-button" onclick="displayArticle()">About this design</button>
+
+            <p id="article">
+
+                Bicycle Dynamo is a growing interaction design that is based on the principle of feedback, where the user's engagement with the page will cause some changes simultaneously. This idea was inspired by another interactive design called POPCAT where users simply use mouse clicks or any keyboard keys to engage with the design. This concept is used on Bicycle Dynamo where users will use mouse clicks to interact, but only mouse clicks will register, because this design also took the concept of clicking speed test, which is used to determine the user's highest clicks per second they can reach. By merging the concepts, this design is developed with the main goal of the higher the bicycle speed reaches, the brighter the flashlight is, and therefore the clearer the background is. In other words, each click will perform feedback which the more clicks there are, the design will produce growth in the background opacity, speedometer of the bicycle and its wheel animation speed. The design choices can be separated into different parts.
+                
+                <br>
+
+                First, to ensure the user that first explores the design understands what they should be doing to interact with the page, the title of the design is set large and bold in the top middle of the page, referencing from the title positioning in POPCAT. This choice makes the user that enters the page immediately see what the design is called and has a guess on how the design works. In case the user still doesn't know what a bicycle dynamo is, which most of the users probably don't reach the conclusion that fast, the tip under the figure, “CLICK THE FIGURE AS FAST AS YOU CAN!” also hinted how users should interact with the page. These two design choices make sure that the users do things correctly. Once the user clicks the figure, it most likely means that the users understand what they should do, therefore the tip will not be needed anymore, so it will be hidden and the title will stay.
+                
+                <br>
+
+                Second, the most important thing of the design is the feedback functions that produce growth in the background and the speed. The function starts from clicking the figure. Everytime a click happens, it adds a point to the speed count that is used to calculate the data of background opacity, animation speed, and etc.. There's also another function that decreases the speed count when the game is running every set interval of time determined by the current speed count. The speed count is staged in 3 levels: 1 to 20, 21 to 40, and 41 to 60. The first level has a longer interval which decreases the speed count slower, making the user able to reach a higher speed count easily. For the second and third level, the interval gets shorter, the speed count decreases faster, and it'll be much harder to raise the speed count after that. From the experiment, users should be able to reach average 40 km/h easily, some are able to reach 60 km/h. Currently there's no one that is able to pass average 60 km/h. If anyone does, they must be clicking at least 20 clicks per second to pass 60 km/h. At first, there's no levels for the design, and the decrease rate was always the same, making it hard for users to start off. By applying the difficulty level from the speed count, it ensures that people who click slow can reach at least 20 or 40 km/h and maintain the speed.
+                
+                <br>
+
+                Third, the speed count is used to calculate different data and then controls other elements in the design. The two elements that are related to the speed count are the background and the wheel spin. For the background, a layer of white div was added between the background image and the figure, simulating the fog that covers up everything around. The higher the speed count is, the lower the opacity becomes, therefore making the background visible to the user. This choice effectively grows the visibility of the background and grows the fog back in when the speed gets slower. Also the title also becomes transparent when the background becomes visible, so the user can see what is behind without any other elements, except the figure itself, blocking the image. For the animation of the wheel spin, the higher the speed count is, the faster the animation plays and vice versa. This choice effectively grows the sense that the bike is going faster from faster wheel spins.
+                
+                <br>
+
+                Fourth, an extra feedback for the click function also inspired by POPCAT, which is changing the image of the figure when the mouse button is held down and changing back when the mouse button is no longer held. This specific choice helps the user to be able to see whether the clicking is functioning correctly. Some people using a trackpad could easily encounter situations where they thought they didn't press anything, but their pointer is actually in a held down state. The choice of having the stick figure changing from the colour of orange to red and bent forward also shows the figure becoming active as a feedback to the click.
+                
+                <br>
+
+                These four main parts are the key concepts that create this design of Bicycle Dynamo, this growing interactive design that is functioned from continuous mouse clicks feedback.
+            
+            </p>
+
+        </div>
+        <!-- The div of the 500 words design choice article -->
+
+        <b id="title">Bicycle Dynamo</b>
+        <!-- Name of the game -->
 
     </body>
 

@@ -1,0 +1,137 @@
+body {
+    background-color: white;
+}
+
+#title {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    font-size: 100px;
+    z-index: 5;
+    opacity: 1;
+    text-align: center;
+}
+
+.bike-simulator {
+   position: relative; 
+   display: flex;
+   align-items: center;
+   justify-items: center;
+}
+
+.background-image {
+    background-image: url("image/background.svg");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 90vh;
+    width: 100%;
+    z-index: 1;
+}
+
+#mask {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+}
+
+.bike-wrapper {
+    position: relative;
+    top: 72%;
+    scale: 50%;
+    z-index: 3;
+    height: 10%;
+    /* background-color: red; */
+}
+
+.bike-image {
+    position: absolute;
+    z-index: 4;
+    scale: 70%;
+    transform: translateY(-90%);
+}
+
+.wheels {
+    scale: 18%;
+}
+
+#front-wheel {
+    position: absolute;
+    transform: translate(-76%, -300%);
+    animation: frontWheelSpin linear infinite;
+}
+
+#back-wheel {
+    position: absolute;
+    transform: translate(80%, -300%);
+    animation: backWheelSpin linear infinite;
+}
+
+.speed-display {
+    position: absolute;
+    color: black;
+    right: 0%;
+    bottom: 0%;
+    font-size: x-large;
+    z-index: 3;
+}
+
+#tip-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 6cm);
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    z-index: 3;
+}
+
+@keyframes frontWheelSpin {
+    from {
+        transform: translate(-76%, -300%) rotate(30deg);
+    }
+    to {
+        transform: translate(-76%, -300%) rotate(0deg);
+    }
+}
+
+@keyframes backWheelSpin {
+    from {
+        transform: translate(80%, -300%) rotate(30deg);
+    }
+    to {
+        transform: translate(80%, -300%) rotate(0deg);
+    }
+}
+
+.words-display {
+    position: absolute;
+    z-index: 6;
+    padding: 2vh;
+    background-color: transparent;
+    max-width: 90%;
+}
+
+#display-button {
+    position: relative;
+}
+
+#article {
+    position: relative;
+    word-wrap: break-word;
+    line-height: 120%;
+}
+
+br {
+    margin: 10px;
+    display: block;
+    content: "";
+}
